@@ -1,5 +1,16 @@
 wrapper for Adafruit's [MAX9744 amplifier python library](https://github.com/adafruit/Adafruit_Python_MAX9744)
 
+adds the following methods:
+```
+get_volume()
+set_volume(value)  # automatically constrains input value to 0-63 inclusive
+decrease_volume()  # lowers volume by one step
+increase_volume()  # raises volume by one step
+ramp_to()          # raise or lower volume one step per second, ctl-C to stop
+mute()
+unmute()
+```
+
 ## install notes
 
 #### *MAX9744 amp library and dependencies*
