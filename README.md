@@ -1,4 +1,4 @@
-wrapper for Adafruit's MAX9744 amplifier python library
+wrapper for Adafruit's [MAX9744 amplifier python library](https://github.com/adafruit/Adafruit_Python_MAX9744)
 
 ## install notes
 
