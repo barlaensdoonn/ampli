@@ -10,9 +10,13 @@ cd Adafruit_Python_MAX9744
 sudo python3 setup.py install
 ```
 enable I2C in raspi-config
-set pi's system volume to 100%
 ```
-amixer set PCM -- 100%
+sudo raspi-config
+```
+
+set pi's system volume to 97% (0db)
+```
+amixer set PCM -- 97%
 ```
 
 #### *pygame and dependencies*
