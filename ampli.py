@@ -30,7 +30,7 @@ class Ampli(object):
         self.set_volume(self.volume)
 
     def _constrain(self, value):
-        '''valid values are 0-63 inclusive'''
+        '''constrain input values to valid range of 0-63 inclusive'''
         cnstrnd = self.min if value < self.min else self.max if value > self.max else value
 
         if cnstrnd != value:
@@ -40,7 +40,7 @@ class Ampli(object):
         return cnstrnd
 
     def set_volume(self, value, suppress=False):
-        '''valid values are 0-63 inclusive'''
+        '''suppress keyword argument used to silence redundant print statements when muting'''
         value = self._constrain(value)
 
         if not suppress:
@@ -60,6 +60,7 @@ class Ampli(object):
         print('increased volume by one step to {}'.format(self.volume))
 
     def mute(self):
+        '''mute amp and store last volume for unmuting'''
         print('muting amp')
         self.unmute_volume = self.volume
         self.set_volume(self.min, suppress=True)
