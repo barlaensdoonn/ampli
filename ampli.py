@@ -95,6 +95,7 @@ class Ampli(object):
         try:
             print('ramping volume from {} to {} in 1 second increments'.format(self.volume, target))
             step = self.volume
+
             for i in range(interval):
                 step += direction
                 self.set_volume(step)
