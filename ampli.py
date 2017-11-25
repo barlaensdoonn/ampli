@@ -39,6 +39,11 @@ class Ampli(object):
 
         return cnstrnd
 
+    def get_volume(self):
+        print('volume currently set to {}'.format(self.volume))
+
+        return self.volume
+
     def set_volume(self, value, suppress=False):
         '''suppress keyword argument used to silence redundant print statements when muting'''
         value = self._constrain(value)
