@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # MAX9744 library wrapper
 # 9/7/17
-# updated: 9/9/17
+# updated: 11/24/17
 
 import time
 from Adafruit_MAX9744 import MAX9744
@@ -9,11 +9,16 @@ from Adafruit_MAX9744 import MAX9744
 
 class Ampli(object):
     '''
-    wrapper for adafruit's MAX9744 library, which has following methods:
+    wrapper for adafruit's MAX9744 library
+
+    contains following methods:
     set_volume(), increase_volume(), decrease_volume()
     if controlling more than one amp from a single pi, must change
     the i2c address on the amp itself and pass in new address to MAX9744()
     more here: https://github.com/adafruit/Adafruit_Python_MAX9744
+
+    NOTE: calls to the MAX9744 module when no amp is connected results in the following error:
+    OSError: [Errno 121] Remote I/O error
     '''
 
     def __init__(self, volume=16):
