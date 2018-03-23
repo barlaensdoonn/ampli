@@ -26,8 +26,16 @@ class Ampli(object):
         self.max = 63
         self.volume = volume
         self.unmute_volume = self.volume
-        self.amp = MAX9744()
-        self.set_volume(self.volume)
+        
+        try:
+            self.amp = MAX9744()
+            self.set_volume(self.volume)
+        except OSError:
+            print("\ngot an OSError when instantiating the amp, check that it's connected and make sure I2C is enabled")
+            time.sleep(5)
+            print('reraising exception...')
+            time.sleep(2)
+            raise
 
     def _constrain(self, value):
         '''constrain input values to valid range of 0-63 inclusive'''
